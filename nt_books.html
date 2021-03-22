@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API PRACTICE</title>
+    <style>
+        body{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .inner img{
+            width: 210px;
+            height: 300px;
+        }
+        .inner{
+            font-size: 25px;
+        }
+        
+    </style>
+  </head>
+  <body>
+    <h1>My API</h1>
+
+    <div class="inner">Title</div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $.ajax({
+        method: "GET",
+        url: "https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=4UkLeAlldG5FoLaeOAndsJn970q8uCdU",
+        data: { list:"hardcover-fiction" },
+      }).done(function (msg, i) {
+          for(var i =0;i < 15; i++){
+
+          
+            $( ".inner" ).append( "<p>"+msg.results.books[i].title+"</p>" );
+            $( ".inner" ).append( "<img src='"+msg.results.books[i].book_image+"'/>" );
+        }
+        });
+    </script>
+  </body>
+</html>
