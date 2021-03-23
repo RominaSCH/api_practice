@@ -28,11 +28,10 @@
     <script>
       $.ajax({
         method: "GET",
-        url: "https://api.thecatapi.com/images/search?mime_types=gif"
+        url: "https://api.thecatapi.com/v1/images/search"
       }).done(function (msg) {
-        console.log(msg);
-        // $( ".inner" ).append( "<img src='"+msg[0].url+"'/>" );
-            // $( ".inner" ).append( "<img src='"+msg+"'/>" );
+        // console.log(msg);
+        $( ".inner" ).append( "<img src='"+msg[0].url+"'/>" );
         });
     </script>
   </body>
