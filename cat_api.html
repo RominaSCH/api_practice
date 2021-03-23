@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API PRACTICE</title>
+    <style>
+        body{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        .inner{
+            font-size: 25px;
+        }
+        
+    </style>
+  </head>
+  <body>
+    <h1>CAT IMAGE</h1>
+
+    <span class="inner"></span>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      $.ajax({
+        method: "GET",
+        url: "https://api.thecatapi.com/images/search?mime_types=gif"
+      }).done(function (msg) {
+        console.log(msg);
+        // $( ".inner" ).append( "<img src='"+msg[0].url+"'/>" );
+            // $( ".inner" ).append( "<img src='"+msg+"'/>" );
+        });
+    </script>
+  </body>
+</html>
